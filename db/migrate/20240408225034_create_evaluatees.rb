@@ -5,7 +5,7 @@ class CreateEvaluatees < ActiveRecord::Migration[7.1]
       t.string :cpf
       t.string :email
       t.date :birthdate
-      t.references :evaluator, null: false, foreign_key: true
+      t.references :psychologist, null: false, foreign_key: true
 
       t.timestamps
     end
