@@ -3,7 +3,6 @@ class CreatePsychologist < ActiveRecord::Migration[7.1]
     create_table :psychologists do |t|
       t.string :first_name
       t.string :last_name
-      t.string :email
 
       t.timestamps
     end
