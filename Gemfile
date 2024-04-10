@@ -18,8 +18,6 @@ gem 'puma', '>= 5.0'
 gem 'simple_form'
 gem 'sprockets-rails'
 
-gem 'faker'
-
 gem 'importmap-rails'
 
 gem 'turbo-rails'
@@ -39,6 +37,8 @@ gem 'bootsnap', require: false
 group :development, :test do
   gem 'debug', platforms: %i[mri windows]
   gem 'factory_bot', '~> 6.4'
+  gem 'faker'
+
   gem 'rspec-rails', '~> 6.1.0'
 end
 
