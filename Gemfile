@@ -6,6 +6,7 @@ gem 'sassc-rails'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.3", ">= 7.1.3.2"
+gem "devise", "~> 4.9"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
@@ -69,3 +70,5 @@ end
 group :test do
   gem 'shoulda-matchers', '~> 6.1'
 end
+
+
