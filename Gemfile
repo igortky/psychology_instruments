@@ -36,7 +36,7 @@ gem 'bootsnap', require: false
 
 group :development, :test do
   gem 'debug', platforms: %i[mri windows]
-  gem 'factory_bot', '~> 6.4'
+  gem 'factory_bot_rails', '~> 6.2.0'
   gem 'faker'
 
   gem 'rspec-rails', '~> 6.1.0'
