@@ -1,16 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PsychologyInstruments</title>
+    <title>Psychology Instruments</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <meta name="turbo-prefetch" content="false">
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
   </head>
 
   <body>
+  <%= link_to new_psychologist_session_path, class: "btn btn-light", style: "display: flex; align-items: center;" do %>
+    <i class="mdi mdi-login text-muted font-size-16 align-middle me-1"></i>
+    <span class="align-middle">Login</span>
+  <% end %>
     <%= yield %>
   </body>
 </html>
+
