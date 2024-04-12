@@ -1,6 +1,6 @@
 class EvaluateesController < ApplicationController
   before_action :authenticate_psychologist!
-  before_action :set_evaluatee, only: [:show]
+  before_action :evaluatee, only: [:show]
 
   def index
     @evaluatees = current_psychologist.evaluatees
@@ -8,9 +8,23 @@ class EvaluateesController < ApplicationController
 
   def show; end
 
+  def new
+    Evaluatee.new
+  end
+
+  def create
+    Evaluatee.create!(permitted_params)
+  end
+
   private
 
-  def set_evaluatee
+  def permitted_params
+    params.require(:evaluatee).permit(
+      :first_name, :last_name, :email, :cpf, :birthdate
+    ).merge(psychologist: current_psychologist)
+  end
+
+  def evaluatee
     @evaluatee = current_psychologist.evaluatees.find(params[:id])
   end
 end
