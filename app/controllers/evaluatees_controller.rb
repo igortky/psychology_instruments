@@ -9,18 +9,23 @@ class EvaluateesController < ApplicationController
   def show; end
 
   def new
-    Evaluatee.new
+    @evaluatee = Evaluatee.new
   end
 
   def create
-    Evaluatee.create!(permitted_params)
+    @evaluatee = Evaluatee.create(permitted_params)
+    if @evaluatee.persisted?
+      redirect_to action: :index
+    else
+      render :new
+    end
   end
 
   private
 
   def permitted_params
     params.require(:evaluatee).permit(
-      :first_name, :last_name, :email, :cpf, :birthdate
+      :name, :email, :cpf, :birthdate
     ).merge(psychologist: current_psychologist)
   end
 
