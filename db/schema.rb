@@ -14,16 +14,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_10_000346) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "applications", force: :cascade do |t|
+  create_table "assessments", force: :cascade do |t|
     t.string "status"
-    t.bigint "psychologists_id", null: false
-    t.bigint "evaluatees_id", null: false
-    t.bigint "instruments_id", null: false
+    t.bigint "psychologist_id", null: false
+    t.bigint "evaluatee_id", null: false
+    t.bigint "instrument_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["evaluatees_id"], name: "index_applications_on_evaluatees_id"
-    t.index ["instruments_id"], name: "index_applications_on_instruments_id"
-    t.index ["psychologists_id"], name: "index_applications_on_psychologists_id"
+    t.index ["evaluatee_id"], name: "index_assessments_on_evaluatee_id"
+    t.index ["instrument_id"], name: "index_assessments_on_instrument_id"
+    t.index ["psychologist_id"], name: "index_assessments_on_psychologist_id"
   end
 
   create_table "evaluatees", force: :cascade do |t|
@@ -57,8 +57,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_10_000346) do
     t.index ["reset_password_token"], name: "index_psychologists_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "applications", "evaluatees", column: "evaluatees_id"
-  add_foreign_key "applications", "instruments", column: "instruments_id"
-  add_foreign_key "applications", "psychologists", column: "psychologists_id"
+  add_foreign_key "assessments", "evaluatees"
+  add_foreign_key "assessments", "instruments"
+  add_foreign_key "assessments", "psychologists"
   add_foreign_key "evaluatees", "psychologists"
 end

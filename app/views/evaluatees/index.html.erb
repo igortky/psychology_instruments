@@ -17,7 +17,7 @@
           <tbody>
             <% for evaluatee in @evaluatees do %>
               <tr>
-                <td><%= evaluatee.name %></td>
+                <td><%= link_to evaluatee.name, evaluatee_path(evaluatee) %></td>
                 <td><%= evaluatee.email %></td>
                 <td><%= evaluatee.cpf %></td>
                 <td><%= evaluatee.birthdate %></td>
