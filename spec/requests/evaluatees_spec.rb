@@ -23,7 +23,7 @@ RSpec.describe 'Evaluatees', type: :request do
     context 'with valid parameters' do
       let(:params) do
         { evaluatee: {
-          name: 'Test', email: 'test@email.com', cpf: '123456789', birthdate: '1990-01-01'
+          name: 'Test', email: 'test@email.com', cpf: '12334558712', birthdate: '1990-01-01'
         } }
       end
       it 'creates a new Evaluatee' do
@@ -39,7 +39,7 @@ RSpec.describe 'Evaluatees', type: :request do
     context 'with invalid parameters' do
       let(:params) do
         { evaluatee: {
-          name: 'Test', email: nil, cpf: '123456789', birthdate: '1990-01-01'
+          name: 'Test', email: nil, cpf: '12334558712', birthdate: '1990-01-01'
         } }
       end
       it 'does not create a new Evaluatee' do
