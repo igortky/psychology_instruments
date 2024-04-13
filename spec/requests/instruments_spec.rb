@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Instruments", type: :request do
+RSpec.describe 'Instruments', type: :request do
   let(:evaluatee) { create(:evaluatee) }
   before { sign_in evaluatee.psychologist }
 

@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :psychologists
 
   resources :evaluatees, only: %i[index new create show] do
+    resources :assessments, only: %i[new create]
     resources :instruments, except: :delete
   end
 
