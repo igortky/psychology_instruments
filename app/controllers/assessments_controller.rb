@@ -12,7 +12,7 @@ class AssessmentsController < ApplicationController
 
     if @assessment.save
       redirect_to evaluatee_path(@evaluatee)
-      Assessments::SendEmail.run(evaluatee: @evaluatee)
+      Assessments::SendEmail.run(evaluatee: @evaluatee, instrument_id: @assessment.instrument.id)
     else
       @instruments = Instrument.all
       render :new
