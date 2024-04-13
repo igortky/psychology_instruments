@@ -1,0 +1,16 @@
+<div class="container-fluid">
+  <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+    <h1>Instruments for <%= @evaluatee.name %></h1>
+  </h1>
+  <section>
+    <div class="card">
+      <div class="card-body">
+          <ul>
+            <% @instruments.each do |instrument| %>
+              <li><%= instrument.name %></li>
+            <% end %>
+        </ul>
+      </div>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,42 @@
+<div class="container">
+  <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+      Evaluatee Information
+  </h1>
+  <div class='card'>
+    <div class="my-3 p-3">
+      <dl class="row">
+      <div class="col-md-4">
+          <dt>Name</dt>
+          <dd><%= @evaluatee.name %></dt>
+        </div>
+        <div class="col-md-3">
+          <dt>CPF</dt>
+          <dd><%= @evaluatee.cpf %></dt>
+        </div>
+        <div class="col-md-3">
+          <dt>Email</dt>
+          <dd><%= @evaluatee.email %></dt>
+        </div>
+        <div class="col-md-4">
+          <dt>Birthdate</dt>
+          <dd><%= @evaluatee.birthdate.strftime('%m/%d/%Y') %></dt>
+        </div>
+      </dl>
+    </div>
+  </div>
+  <div class='card'>
+    <div class="my-3 p-3">
+      <dl class="row">
+      <div class="col-md-4">
+        <dt>Instruments</dt>
+        <dd>
+          <ul>
+            <% @evaluatee.instruments.each do |instrument| %>
+              <li><%= instrument.name %></li>
+            <% end %>
+          </ul>
+        </div>
+      </dl>
+    </div>
+  </div>
+</div>
