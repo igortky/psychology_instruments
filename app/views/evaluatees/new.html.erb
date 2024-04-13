@@ -1,0 +1,16 @@
+<div class="container">
+  <div class='card'>
+     <h5 class="card-header">
+      New Evaluatee
+    </h5>
+    <div class="card-body">
+      <%= simple_form_for @evaluatee do |f| %>
+        <%= f.input :name,  required: true, label: 'Name' %>
+        <%= f.input :email, required: true %>
+        <%= f.input :cpf, required: true, input_html: { maxlength: 11, minlength: 11 } %>
+        <%= f.input :birthdate, required: true, start_year: 1700 %>
+        <%= f.submit 'Create', class: 'btn btn-primary mt-3' %>
+      <% end %>
+    </div>
+  </div>
+</div>
