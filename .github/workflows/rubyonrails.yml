@@ -25,6 +25,11 @@ jobs:
           --health-timeout 5s
           --health-retries 5
 
+    env:
+      RAILS_ENV: test
+      DATABASE_URL: postgres://postgres:postgres@localhost:5432/psychology_instruments_test
+      CI: true
+
     steps:
       - uses: actions/checkout@v2
 
@@ -38,7 +43,8 @@ jobs:
         run: bin/rails db:setup
         env:
           RAILS_ENV: test
-          DATABASE_URL: postgres://postgres:postgres@localhost:5432/psychology_instruments_test
-
+          DATABASE_HOST: postgres
+          DATABASE_USER_NAME: postgres
+          DATABASE_PASSWORD: postgres
       - name: Run tests
         run: bundle exec rspec
