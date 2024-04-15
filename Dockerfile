@@ -21,6 +21,9 @@ WORKDIR /psychology
 # Copy all gemfile and dependencies
 COPY Gemfile Gemfile.lock ./
 
+# Copy .env file
+COPY .env ./
+
 # Install necessary gems and bundle
 RUN gem install bundler
 RUN gem install rake --version 13.2.1
