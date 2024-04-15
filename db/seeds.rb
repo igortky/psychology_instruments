@@ -12,3 +12,18 @@ Psychologist.create!(
   first_name: 'Soren', last_name: 'Kierkegaard', email: 'admin@email.com',
   password: 'password', password_confirmation: 'password'
 )
+
+Instrument.create(
+  name: 'Sample Instrument',
+  questions: 5.times.map do
+    {
+      title: 'Sample Question',
+      options: 4.times.map do |i|
+        {
+          name: "Option #{i + 1}",
+          score: 3 - i
+        }
+      end
+    }
+  end
+)
