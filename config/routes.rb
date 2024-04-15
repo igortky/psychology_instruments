@@ -1,13 +1,21 @@
 Rails.application.routes.draw do
   devise_for :psychologists
 
-  resources :evaluatees, only: %i[index new create show] do
-    resources :assessments, only: %i[new create]
+  resources :evaluatees, except: %i[destroy] do
+    resources :assessments, only: %i[new create show] do
+      member do
+        get :start
+        post :submit
+        get :questions
+        post :submit_answers
+        get :complete
+      end
+    end
     resources :instruments, except: :delete
   end
 
   get 'up' => 'rails/health#show', as: :rails_health_check
-
-  # Defines the root path route ("/")
-  root to: 'home#index'
+  devise_scope :psychologist do
+    root to: 'devise/sessions#new'
+  end
 end

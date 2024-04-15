@@ -16,6 +16,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_10_000346) do
 
   create_table "assessments", force: :cascade do |t|
     t.string "status"
+    t.jsonb "responses", default: []
     t.bigint "psychologist_id", null: false
     t.bigint "evaluatee_id", null: false
     t.bigint "instrument_id", null: false
@@ -39,6 +40,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_10_000346) do
 
   create_table "instruments", force: :cascade do |t|
     t.string "name"
+    t.jsonb "questions", default: [], null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

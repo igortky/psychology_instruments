@@ -26,18 +26,31 @@
   </div>
   <div class='card'>
     <div class="my-3 p-3">
-      <dl class="row">
-      <div class="col-md-4">
-        <dt>Instruments</dt>
-        <dt> <%= link_to 'Apply new Instrument', new_evaluatee_assessment_path(@evaluatee), class: 'btn btn-primary' %> </dt>
-        <dd>
-          <ul>
-            <% @evaluatee.instruments.each do |instrument| %>
-              <li><%= instrument.name %></li>
+    <dl class="row">
+    <div class="col-md-4">
+      <dt>Instruments</dt>
+      <dt> <%= link_to 'Apply new Instrument', new_evaluatee_assessment_path(@evaluatee), class: 'btn btn-primary' %> </dt>
+      <dd>
+      <table class="table table-hover">
+        <thead>
+          <th>Name</th>
+          <th>Status</th>
+          </thead>
+        <tbody>
+          <% @evaluatee.assessments.each do |assessment| %>
+            <tr>
+              <td> <%= assessment.name %> </td>
+              <% if assessment.status == 'finalized' %>
+              <td> <%= link_to 'finalized', evaluatee_assessment_path(@evaluatee, assessment, status: 'finalized') %> </td>
+              <% else %>
+                <td> assessment.status%> </td>
+              <% end %>
+            </tr>
             <% end %>
-          </ul>
-        </div>
-      </dl>
+        </tbody>
+      </table>
+      </div>
+    </dl>
     </div>
   </div>
 </div>

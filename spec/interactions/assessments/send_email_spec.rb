@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Assessments::SendEmail do
-  subject(:run) { described_class.run(evaluatee:, instrument_id:) }
+  subject(:run) { described_class.run(evaluatee:, assessment_id:) }
   let(:evaluatee) { create(:evaluatee) }
-  let(:instrument_id) { create(:instrument).id }
+  let(:assessment_id) { create(:assessment, evaluatee:).id }
 
   it 'sends AssessmentMailer' do
     perform_enqueued_jobs do

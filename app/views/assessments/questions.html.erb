@@ -1,0 +1,14 @@
+<!-- app/views/assessments/questions.html.erb -->
+<%= simple_form_for @assessment, url: submit_answers_evaluatee_assessment_path(@evaluatee, @assessment), method: :post do |f| %>
+  <% @questions.each do |question| %>
+    <div>
+      <p><%= question["title"] %></p>
+      <% question["options"].each do |choice| %>
+        <%= check_box_tag 'choice_ids[]', choice["name"], false %>
+        <%= hidden_field_tag 'scores[]', choice["score"] %>
+        <%= label_tag 'choice_ids[]', choice["name"] %>
+      <% end %>
+    </div>
+  <% end %>
+  <%= f.button :submit, 'Submit',  class: 'btn btn-primary' %>
+<% end %>
