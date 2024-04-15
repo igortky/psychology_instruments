@@ -21,3 +21,9 @@ Before you begin, ensure you have met the following requirements:
 
 1. Start the Rails server with the command `rails s`.
 2. Log in with the user created in the seed data.
+
+## For Docker Users
+
+1. Run the command `docker-compose up`.
+2. Access the application at `localhost:3003`.
+
