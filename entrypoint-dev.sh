@@ -4,7 +4,7 @@ set -e
 echo $RAILS_ENV
 
 echo 'MIGRATING'
-rake db:migrate db:seed
+rake db:create db:migrate db:seed
 
 
 echo 'CLEANING SERVER'
