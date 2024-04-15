@@ -37,21 +37,16 @@
           <th>Status</th>
           </thead>
         <tbody>
-          <% @evaluatee.instruments.each do |instrument| %>
+          <% @evaluatee.assessments.each do |assessment| %>
             <tr>
-            <% if instrument.status == 'finalized' %>
-            <%= link_to instrument.name, evaluatee_instrument_path(@evaluatee, instrument) %>
-          <% else %>
-            <%= instrument.name %>
-          <% end %>
-              <td><%= instrument.name %></td>
-              <% if instrument.status == 'finalized' %>
-                  <td><%= link_to instrument.status, evaluatee_assessment_path(@evaluatee, instrument.assessment) %></td>
-                <% else %>
-                  <td><%= instrument.status%></td>
+              <td> <%= assessment.name %> </td>
+              <% if assessment.status == 'finalized' %>
+              <td> <%= link_to 'finalized', evaluatee_assessment_path(@evaluatee, assessment, status: 'finalized') %> </td>
+              <% else %>
+                <td> assessment.status%> </td>
               <% end %>
             </tr>
-          <% end %>
+            <% end %>
         </tbody>
       </table>
       </div>

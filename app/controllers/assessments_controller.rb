@@ -1,7 +1,7 @@
 class AssessmentsController < ApplicationController
   before_action :authenticate_psychologist!, except: %i[start submit questions submit_answers complete]
   before_action :set_evaluatee
-  before_action :set_assessment, only: %i[start submit questions submit_answers complete]
+  before_action :set_assessment, only: %i[start submit questions submit_answers complete show]
 
   def new
     @assessment = @evaluatee.assessments.build
@@ -35,7 +35,7 @@ class AssessmentsController < ApplicationController
   end
 
   def submit_answers
-    @assessment.responses = params[:choice_ids].merge(status: :finalized)
+    @assessment.update(responses: params[:choice_ids], status: :finalized)
     if @assessment.save
       redirect_to complete_evaluatee_assessment_path(@evaluatee, @assessment)
     else
