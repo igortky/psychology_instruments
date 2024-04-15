@@ -22,6 +22,7 @@ WORKDIR /psychology
 COPY Gemfile Gemfile.lock ./
 
 # Copy .env file
+# It is not recomend copy .env file, but for this case is acceptable
 COPY .env ./
 
 # Install necessary gems and bundle
